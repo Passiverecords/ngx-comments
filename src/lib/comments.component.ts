@@ -14,6 +14,8 @@ export class CommentsComponent implements OnInit {
     @Input("user") user: user;
     @Input("comments") comments: comment[];
 
+    @Input("timereverse") reverse: boolean = false;
+
     @Output() onComment = new EventEmitter();
 
     constructor() {}

@@ -55,6 +55,7 @@
     flex-wrap: nowrap;
     list-style-type: none;
     margin: 0;
+    margin-bottom: 15px;
 }
 
 .comments-input {
