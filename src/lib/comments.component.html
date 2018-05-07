@@ -1,1 +1,40 @@
-<p>comments works from html file!</p>
+<ul class="comments">
+    <li class="comments-new" *ngIf="reverse">
+        <div class="comments-avatar">
+            <img [src]="user.avatarUrl?user.avatarUrl:'https://www.festivalnikon.fr/img/design/avatar-default.png'" />
+        </div>
+        <div [class]="inputActive?'comments-block focused':'comments-block'">
+            <textarea placeholder="Leave a comment" class="comments-input" (focus)="inputActive=true" (blur)="inputActive=false" [(ngModel)]="inputComment"></textarea>
+            <div class="comments-add">
+                <button class="btn btn-info" (click)="add(inputComment)">Comment</button>
+            </div>
+        </div>
+    </li>
+    <li *ngFor="let comment of (comments | orderByImpure: (reverse?'-date':'date')); index as i;" class="comments-comment">
+        <div class="comments-avatar">
+            <img [src]="comment.avatarUrl?comment.avatarUrl:'https://www.festivalnikon.fr/img/design/avatar-default.png'" />
+        </div>
+        <div class="comments-block">
+            <h3>
+                <b>{{comment.author}}</b> commented {{comment.date | amTimeAgo}}
+            </h3>
+            <div class="comments-text">
+                 {{comment.text}}
+            </div>
+            <div class="comments-reactions" *ngIf="comment.reactions.length">
+                <span *ngFor="let reaction of comment.reactions; index as r;">{{reaction}}</span>
+            </div>
+        </div>
+    </li>
+    <li class="comments-new" *ngIf="!reverse">
+        <div class="comments-avatar">
+            <img [src]="user.avatarUrl?user.avatarUrl:'https://www.festivalnikon.fr/img/design/avatar-default.png'" />
+        </div>
+        <div [class]="inputActive?'comments-block focused':'comments-block'">
+            <textarea placeholder="Leave a comment" class="comments-input" (focus)="inputActive=true" (blur)="inputActive=false" [(ngModel)]="inputComment"></textarea>
+            <div class="comments-add">
+                <button class="btn btn-info" (click)="add(inputComment)">Comment</button>
+            </div>
+        </div>
+    </li>
+</ul>
