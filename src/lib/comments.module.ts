@@ -5,9 +5,10 @@ import { MomentModule } from "ngx-moment";
 import { FormsModule } from "@angular/forms";
 import { NgPipesModule } from "ngx-pipes";
 import { AutosizeModule } from "ngx-autosize";
+import { FontAwesomeModule } from "ngx-icons";
 
 @NgModule({
-    imports: [CommonModule, MomentModule, FormsModule, NgPipesModule, AutosizeModule],
+    imports: [CommonModule, MomentModule, FormsModule, NgPipesModule, AutosizeModule, FontAwesomeModule],
     declarations: [CommentsComponent],
     exports: [CommentsComponent]
 })
