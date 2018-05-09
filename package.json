@@ -1,8 +1,13 @@
 {
-    "name": "ng-comments",
-    "version": "0.0.1",
+    "name": "ngx-comments",
+    "version": "0.0.2",
     "peerDependencies": {
         "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-        "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+        "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+        "@angular/forms": "^6.0.0-rc.0 || ^6.0.0",
+        "ngx-autosize": "^1.0.0",
+        "moment": "^2.22.1",
+        "ngx-moment": "^2.0.0",
+        "ngx-pipes": "^2.1.2"
     }
 }

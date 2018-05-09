@@ -25,6 +25,7 @@ export class CommentsComponent implements OnInit {
     add(comment) {
         let newComment = {
             uuid: "",
+            avatarUrl: "",
             author: this.user.name,
             text: comment,
             date: moment(),
@@ -38,6 +39,7 @@ export class CommentsComponent implements OnInit {
 
 export type comment = {
     uuid: string;
+    avatarUrl: string;
     author: string;
     text: string;
     date: object;
