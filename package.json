@@ -11,5 +11,13 @@
         "ngx-pipes": "^2.1.2",
         "uuid": "^3.2.1",
         "ngx-icons": "^0.3.0"
+    },
+    "dependencies": {
+        "ngx-autosize": "^1.0.0",
+        "moment": "^2.22.1",
+        "ngx-moment": "^2.0.0",
+        "ngx-pipes": "^2.1.2",
+        "uuid": "^3.2.1",
+        "ngx-icons": "^0.3.0"
     }
 }
