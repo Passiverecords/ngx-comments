@@ -20,7 +20,7 @@
     <div class="row mb-3" *ngFor="let comment of (comments | orderByImpure: (reverse?'-date':'date')); index as i;">
         <div class="col-xs-3 col-sm-2 col-md-2 col-lg-1">
             <div>
-                <img class="img-thumbnail" [src]="comment.avatarUrl?user.avatarUrl:'https://www.festivalnikon.fr/img/design/avatar-default.png'">
+                <img class="img-thumbnail" [src]="comment.author.avatarUrl?comment.author.avatarUrl:'https://www.festivalnikon.fr/img/design/avatar-default.png'">
             </div>
         </div>
         <div class="col-xs-9 col-sm-10 col-md-10 col-lg-11">
