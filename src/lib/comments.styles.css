@@ -1,0 +1,44 @@
+.thumbnail {
+    padding:0px;
+}
+.card {
+	position:relative;
+}
+.card>.card-header:after,.card>.card-header:before{
+	position:absolute;
+	top:11px;left:-16px;
+	right:100%;
+	width:0;
+	height:0;
+	display:block;
+	content:" ";
+	border-color:transparent;
+	border-style:solid solid outset;
+	pointer-events:none;
+}
+.card>.card-header:after{
+	border-width:7px;
+	border-right-color:#f7f7f7;
+	margin-top:1px;
+	margin-left:2px;
+}
+.card>.card-header:before{
+	border-right-color:#ddd;
+	border-width:8px;
+}
+
+.comments-input{
+    border: 0;
+    outline: none;
+    padding: 6px;
+    size: 1em;
+    border-bottom: 1px dashed #CCC;
+}
+
+.card-body {
+    white-space: pre-line;
+}
+
+.input-active{
+    box-shadow: 0 0 3pt 2pt rgb(79, 102, 224);
+}

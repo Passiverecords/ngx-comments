@@ -1,1 +1,55 @@
-<p>comments works from html file!</p>
+<div class="container mt-1">
+    <div *ngIf="reverse" class="row mb-3">
+        <div class="col-sm-1">
+            <div>
+                <img class="img-thumbnail img-fluid" [src]="user.avatarUrl?user.avatarUrl:'https://www.festivalnikon.fr/img/design/avatar-default.png'">
+            </div>
+        </div>
+        <div class="col-sm-11">
+            <div [class]="!inputActive?'card card-default':'card card-default input-active'">
+                <div class="card-header">
+                    <strong>Leave a comment</strong>
+                </div>
+                <textarea placeholder="Type here..." class="comments-input" (focus)="inputActive=true" (blur)="inputActive=false" [(ngModel)]="inputComment" autosize rows="5"></textarea>
+                <div class="comments-add m-2">
+                    <button class="btn btn-info" (click)="add(inputComment)">Comment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3" *ngFor="let comment of (comments | orderByImpure: (reverse?'-date':'date')); index as i;">
+        <div class="col-sm-1">
+            <div>
+                <img class="img-thumbnail img-fluid" [src]="comment.avatarUrl?user.avatarUrl:'https://www.festivalnikon.fr/img/design/avatar-default.png'">
+            </div>
+        </div>
+        <div class="col-sm-11">
+            <div class="card card-default">
+                <div class="card-header">
+                    <strong>{{comment.author}}</strong>&nbsp;<span class="text-muted">commented {{comment.date | amTimeAgo}}</span>
+                </div>
+                <div class="card-body">
+                    {{comment.text}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!reverse" class="row mb-3">
+        <div class="col-sm-1">
+            <div>
+                <img class="img-thumbnail img-fluid" [src]="user.avatarUrl?user.avatarUrl:'https://www.festivalnikon.fr/img/design/avatar-default.png'">
+            </div>
+        </div>
+        <div class="col-sm-11">
+            <div [class]="!inputActive?'card card-default':'card card-default input-active'">
+                <div class="card-header">
+                    <strong>Leave a comment</strong>
+                </div>
+                <textarea placeholder="Type here..." class="comments-input" (focus)="inputActive=true" (blur)="inputActive=false" [(ngModel)]="inputComment" autosize rows="5"></textarea>
+                <div class="comments-add m-2">
+                    <button class="btn btn-info" (click)="add(inputComment)">Comment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

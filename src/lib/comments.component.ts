@@ -1,15 +1,53 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from "@angular/core";
+import * as momentImported from "moment";
+const moment = momentImported;
 
 @Component({
-  selector: '[lib-comments]',
-  templateUrl: './comments.component.html',
-  styles: []
+    selector: "[ng-comments]",
+    templateUrl: "./comments.component.html",
+    styleUrls: ["./comments.styles.css"]
 })
 export class CommentsComponent implements OnInit {
+    inputActive: boolean = false;
+    inputComment: string = "";
 
-  constructor() { }
+    @Input("user") user: user;
+    @Input("comments") comments: comment[];
 
-  ngOnInit() {
-  }
+    @Input("timereverse") reverse: boolean = false;
 
+    @Output() onComment = new EventEmitter();
+
+    constructor() {}
+
+    ngOnInit() {}
+
+    add(comment) {
+        let newComment = {
+            uuid: "",
+            avatarUrl: "",
+            author: this.user.name,
+            text: comment,
+            date: moment(),
+            reactions: []
+        };
+        this.comments.push(newComment);
+        this.onComment.emit(newComment);
+        this.inputComment = "";
+    }
 }
+
+export type comment = {
+    uuid: string;
+    avatarUrl: string;
+    author: string;
+    text: string;
+    date: object;
+    reactions: string[];
+};
+
+export type user = {
+    uuid: string;
+    name: string;
+    avatarUrl: string;
+};
