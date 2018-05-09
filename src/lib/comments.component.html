@@ -1,11 +1,11 @@
 <div class="container mt-1">
     <div *ngIf="reverse" class="row mb-3">
-        <div class="col-sm-1">
+        <div class="col-xs-3 col-sm-2 col-md-2 col-lg-1">
             <div>
-                <img class="img-thumbnail img-fluid" [src]="user.avatarUrl?user.avatarUrl:'https://www.festivalnikon.fr/img/design/avatar-default.png'">
+                <img class="img-thumbnail" [src]="user.avatarUrl?user.avatarUrl:'https://www.festivalnikon.fr/img/design/avatar-default.png'">
             </div>
         </div>
-        <div class="col-sm-11">
+        <div class="col-xs-9 col-sm-10 col-md-10 col-lg-11">
             <div [class]="!inputActive?'card card-default':'card card-default input-active'">
                 <div class="card-header">
                     <strong>Leave a comment</strong>
@@ -18,12 +18,12 @@
         </div>
     </div>
     <div class="row mb-3" *ngFor="let comment of (comments | orderByImpure: (reverse?'-date':'date')); index as i;">
-        <div class="col-sm-1">
+        <div class="col-xs-3 col-sm-2 col-md-2 col-lg-1">
             <div>
-                <img class="img-thumbnail img-fluid" [src]="comment.avatarUrl?user.avatarUrl:'https://www.festivalnikon.fr/img/design/avatar-default.png'">
+                <img class="img-thumbnail" [src]="comment.avatarUrl?user.avatarUrl:'https://www.festivalnikon.fr/img/design/avatar-default.png'">
             </div>
         </div>
-        <div class="col-sm-11">
+        <div class="col-xs-9 col-sm-10 col-md-10 col-lg-11">
             <div class="card card-default">
                 <div class="card-header">
                     <strong>{{comment.author}}</strong>&nbsp;<span class="text-muted">commented {{comment.date | amTimeAgo}}</span>
@@ -35,12 +35,12 @@
         </div>
     </div>
     <div *ngIf="!reverse" class="row mb-3">
-        <div class="col-sm-1">
+        <div class="col-xs-3 col-sm-2 col-md-2 col-lg-1">
             <div>
-                <img class="img-thumbnail img-fluid" [src]="user.avatarUrl?user.avatarUrl:'https://www.festivalnikon.fr/img/design/avatar-default.png'">
+                <img class="img-thumbnail" [src]="user.avatarUrl?user.avatarUrl:'https://www.festivalnikon.fr/img/design/avatar-default.png'">
             </div>
         </div>
-        <div class="col-sm-11">
+        <div class="col-xs-9 col-sm-10 col-md-10 col-lg-11">
             <div [class]="!inputActive?'card card-default':'card card-default input-active'">
                 <div class="card-header">
                     <strong>Leave a comment</strong>
