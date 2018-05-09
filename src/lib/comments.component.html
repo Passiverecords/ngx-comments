@@ -24,11 +24,19 @@
             </div>
         </div>
         <div class="col-xs-9 col-sm-10 col-md-10 col-lg-11">
-            <div class="card card-default">
+            <div [class]="!comment._edit?'card card-default':'card card-default input-active'">
                 <div class="card-header">
-                    <strong>{{comment.author}}</strong>&nbsp;<span class="text-muted">commented {{comment.date | amTimeAgo}}</span>
+                    <div class="float-right comments-menu">
+                        <fa name="pencil" *ngIf="isEditable == 'all' || (isEditable == 'mine' && comment.author.uuid == user.uuid)" (click)="comment._edit=true" [class]="!comment._editHover?'text-muted mr-1':'mr-1'" (mouseenter)="comment._editHover=true" (mouseleave)="comment._editHover=false"></fa>
+                        <fa name="trash" *ngIf="isTrashable == 'all' || (isTrashable == 'mine' && comment.author.uuid == user.uuid)" (click)="trash(comment)" [class]="!comment._trashHover?'text-muted mr-1':'mr-1'" (mouseenter)="comment._trashHover=true" (mouseleave)="comment._trashHover=false"></fa>
+                    </div>
+                    <strong>{{comment.author.name}}</strong>&nbsp;<span class="text-muted">commented {{comment.date | amTimeAgo}}</span>
                 </div>
-                <div class="card-body">
+                <textarea placeholder="Edit here..." class="comments-input" [(ngModel)]="comment.text" autosize rows="5" *ngIf="comment._edit"></textarea>
+                <div class="comments-add m-2" *ngIf="comment._edit">
+                    <button class="btn btn-info" (click)="edit(comment)">Save</button>
+                </div>
+                <div class="card-body" *ngIf="!comment._edit">
                     {{comment.text}}
                 </div>
             </div>
