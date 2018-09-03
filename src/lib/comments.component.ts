@@ -20,6 +20,7 @@ export class CommentsComponent implements OnInit {
 
     @Input("editable") isEditable: editable = editable.none;
     @Input("trashable") isTrashable: trashable = trashable.none;
+    @Input("postable") isPostable: boolean = false;
 
     @Output() onComment = new EventEmitter();
     @Output() onEditComment = new EventEmitter();
